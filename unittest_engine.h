@@ -10,14 +10,14 @@
 #define MAX_BUFF_SZ 512
 
 #define assert(test, msg) do {                                                       \
-    char * buff = malloc(sizeof(char) * MAX_BUFF_SZ);                                \
     if (!(test)) {                                                                   \
+        char * buff = malloc(sizeof(char) * MAX_BUFF_SZ);                            \
         snprintf(buff, MAX_BUFF_SZ, "[!] %s %d: %s\n", __FUNCTION__, __LINE__, msg); \
         return buff;                                                                 \
     }                                                                                \
 } while (0)
 
-#define run_uniitest(test) do {       \
+#define run_unittest(test) do {       \
     printf("Running %-50s", #test);   \
     char * msg = test(); tests_run++; \
     if (msg) {                        \
