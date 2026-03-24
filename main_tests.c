@@ -1,17 +1,21 @@
 #include <stdio.h>
 #include "unittest_engine.h"
-#include "pol.h"
 
 int tests_run    = 0;
 int failed_tests = 0;
 
-static char * test_example() {
+static char *test_another_example() {
+    assert(1 == 1, "Good !");
+}
+
+static char *test_example() {
     assert(1 != 1, "Missing tests!");
     return 0;
 }
 
 static void all_tests() {
-    run_uniitest(test_example);
+    run_unittest(test_example);
+    run_unittest(test_another_example);
 }
 
 
